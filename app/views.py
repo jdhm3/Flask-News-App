@@ -1,6 +1,13 @@
 from app import app
 from flask import render_template
 from .request import businessArticles, entArticles, get_news_source, healthArticles, publishedArticles, randomArticles, scienceArticles, sportArticles, techArticles, topHeadlines
+import ibm_db
+import re
+
+app.secret_key = 'a'
+
+conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=19af6446-6171-4641-8aba-9dcff8e1b6ff.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud;PORT=30699;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=vdw12720;PWD=mf9alfPa4FaD2Qbm",'','')
+
 
 @app.route('/')
 def home():
